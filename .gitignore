@@ -1,0 +1,14 @@
+######### Poof it doesnt exist!
+
+##### OSX Stuff
+.DS_Store
+
+##### VM Stuff
+ubuntu64
+
+##### VAGRANT
+.vagrant
+*.ssh_config
+
+##### NODE
+node_modules
