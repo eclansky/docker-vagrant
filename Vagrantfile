@@ -6,11 +6,21 @@
 # backwards compatibility). Please don't change it unless you know what
 # you're doing.
 Vagrant.configure(2) do |config|
-  config.vm.box = "ubuntu/trusty64"
-  config.vm.provision :shell, path: "bootstrap.sh"
-  config.vm.network :private_network, ip: "192.168.33.10"
-  #config.vm.network :forwarded_port, guest: 80, host: 4567
+ 
+  config.vm.define "master" do |master|
+ #   master.vm.memory = "1500"
+    master.vm.box = "ubuntu/trusty64"
+    master.vm.hostname = "master"
+    master.vm.network :private_network, ip: "192.168.0.80"
+  end
+
+  config.vm.define "node" do |node|
+    node.vm.box = "ubuntu/trusty64"
+    node.vm.hostname = "node"
+    node.vm.network :private_network, ip: "192.168.0.81"
+  end
 end
+
 
   # The most common configuration options are documented and commented below.
   # For a complete reference, please see the online documentation at
